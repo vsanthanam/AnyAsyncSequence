@@ -17,6 +17,8 @@ var mySequence: AnyAsyncSequence<Element> {
 }
 ```
 
+Explore [the documentation](https://vsanthanam.github.io/AnyAsyncSequence/docs/documentation/anyasyncsequence/) for more details.
+
 ## Installation
 
 AnyAsyncSequence currently distributed exclusively through the [Swift Package Manager](https://www.swift.org/package-manager/). 
@@ -35,3 +37,7 @@ To add AnyAsyncSequence as a dependency to an Xcode Project:
 - Enter package URL `https://github.com/vsanthanam/AnyAsyncSequence.git` and select your release and of choice.
 
 Other distribution mechanisms like CocoaPods or Carthage may be added in the future.
+
+#### Other
+
+If you find this package useful, checkout some of my [others](https://reachability.tools)
