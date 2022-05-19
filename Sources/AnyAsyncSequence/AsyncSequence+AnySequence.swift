@@ -1,5 +1,5 @@
 // AnyAsyncSequence
-// AnyAsyncSequenceTests.swift
+// AsyncSequence+AnySequence.swift
 //
 // MIT License
 //
@@ -23,7 +23,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-@testable import AnyAsyncSequence
-import XCTest
+import Foundation
 
-final class AnyAsyncSequenceTests: XCTestCase {}
+public extension AsyncSequence {
+
+    func eraseToAnyAsyncSequence() -> AnyAsyncSequence<Element> {
+        AnyAsyncSequence(self)
+    }
+
+}
