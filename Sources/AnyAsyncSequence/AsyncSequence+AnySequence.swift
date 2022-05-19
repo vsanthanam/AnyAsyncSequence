@@ -26,7 +26,9 @@
 import Foundation
 
 public extension AsyncSequence {
-
+    
+    /// Create a type erased version of this sequence
+    /// - Returns: The sequence, wrapped in an `AnyAsyncSequence`
     func eraseToAnyAsyncSequence() -> AnyAsyncSequence<Element> {
         AnyAsyncSequence(self)
     }

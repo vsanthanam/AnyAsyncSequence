@@ -25,6 +25,10 @@
 
 import Foundation
 
+/// A type erased `AsyncSequence`
+///
+/// This type allows you to create APIs that return an `AsyncSequence` that allows consumers to iterate over the sequence, without exposing the sequence's underlyin type.
+/// Typically, you wouldn't actually initialize this type yourself, but instead create one using the `.eraseToAnyAsyncSequence()` operator also provided with this package.
 public struct AnyAsyncSequence<Element>: AsyncSequence {
 
     // MARK: - Initializers
