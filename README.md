@@ -1,11 +1,13 @@
 # AnyAsyncSequence
 
-[![MIT License](https://img.shields.io/github/license/vsanthanam/AnyAsyncSequence)](https://github.com/vsanthanam/AsyncSequence/blob/main/LICENSE)
+[![MIT License](https://img.shields.io/github/license/vsanthanam/AnyAsyncSequence)](https://github.com/vsanthanam/AnyAsyncSequence/blob/main/LICENSE)
 [![Swift 5.6](https://img.shields.io/badge/Swift-5.6-critical)](https://www.swift.org)
 [![iOS | macOS | tvOS | watchOS](https://img.shields.io/badge/Platforms-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-inactive)](https://developer.apple.com)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/vsanthanam/anyasyncsequence)](https://github.com/vsanthanam/AnyAsyncSequence/releases)
 
-AnyAsyncSequence allows you to expose `AsyncSequence` interfaces in your APIs without exposing the underlying sequence type, while preserving the underlying type so consumers of the API can still iterate over the sequence. I assume that when Swift adds type constraints to opaque types, this may become unnecessary.
+AnyAsyncSequence allows you to expose `AsyncSequence` interfaces in your APIs without exposing the underlying sequence type, while continuing to expose the sequence's `Element` type to consumers, so they can asynchronously iterate over the sequence.
+
+I assume that when Swift adds type constraints to opaque types ([as has been hinted](https://forums.swift.org/t/anyasyncsequence/50828/2)), this package may become unnecessary.
 
 ```swift
 import AnyAsyncSequence
