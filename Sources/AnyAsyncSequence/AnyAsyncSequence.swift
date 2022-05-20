@@ -32,14 +32,16 @@ import Foundation
 public struct AnyAsyncSequence<Element>: AsyncSequence {
 
     // MARK: - Initializers
-
+    
+    /// Create an `AnyAsyncSequence` from an `AsyncSequence` conforming type
+    /// - Parameter sequence: The `AnySequence` type you wish to erase
     public init<T: AsyncSequence>(_ sequence: T) where T.Element == Element {
-        makeAsyncIteratorClosure = { Iterator(sequence.makeAsyncIterator()) }
+        makeAsyncIteratorClosure = { AnyAsyncIterator(sequence.makeAsyncIterator()) }
     }
 
     // MARK: - API
 
-    public struct Iterator: AsyncIteratorProtocol {
+    public struct AnyAsyncIterator: AsyncIteratorProtocol {
         private let nextClosure: () async throws -> Element?
 
         public init<T: AsyncIteratorProtocol>(_ iterator: T) where T.Element == Element {
@@ -56,10 +58,10 @@ public struct AnyAsyncSequence<Element>: AsyncSequence {
 
     public typealias Element = Element
 
-    public typealias AsyncIterator = Iterator
+    public typealias AsyncIterator = AnyAsyncIterator
 
     public func makeAsyncIterator() -> AsyncIterator {
-        Iterator(makeAsyncIteratorClosure())
+        AnyAsyncIterator(makeAsyncIteratorClosure())
     }
 
     private let makeAsyncIteratorClosure: () -> AsyncIterator
