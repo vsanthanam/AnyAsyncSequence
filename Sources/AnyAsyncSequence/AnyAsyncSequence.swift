@@ -29,10 +29,11 @@ import Foundation
 ///
 /// This type allows you to create APIs that return an `AsyncSequence` that allows consumers to iterate over the sequence, without exposing the sequence's underlyin type.
 /// Typically, you wouldn't actually initialize this type yourself, but instead create one using the `.eraseToAnyAsyncSequence()` operator also provided with this package.
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AnyAsyncSequence<Element>: AsyncSequence {
 
     // MARK: - Initializers
-    
+
     /// Create an `AnyAsyncSequence` from an `AsyncSequence` conforming type
     /// - Parameter sequence: The `AnySequence` type you wish to erase
     public init<T: AsyncSequence>(_ sequence: T) where T.Element == Element {
