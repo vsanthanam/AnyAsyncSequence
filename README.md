@@ -49,7 +49,7 @@ var mySequence: AnyAsyncSequence<Element> {
 }
 ```
 
-Explore [the documentation](https://vsanthanam.github.io/AnyAsyncSequence/docs/documentation/anyasyncsequence) for more details.
+Explore [the documentation](https://anyasyncsequence.tools/docs/documentation/anyasyncsequence) for more details.
 
 ## License
 
