@@ -25,8 +25,9 @@
 
 import Foundation
 
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public extension AsyncSequence {
-    
+
     /// Create a type erased version of this sequence
     /// - Returns: The sequence, wrapped in an `AnyAsyncSequence`
     func eraseToAnyAsyncSequence() -> AnyAsyncSequence<Element> {
