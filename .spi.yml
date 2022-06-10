@@ -1,0 +1,12 @@
+version: 1
+builder:
+  configs:
+  - platform: ios
+    scheme: AnyAsyncSequence
+  - platform: macos-xcodebuild
+    scheme: AnyAsyncSequence
+  - platform: tvos
+    scheme: AnyAsyncSequence
+  - platform: watchos
+    scheme: AnyAsyncSequence
+  - documentation_targets: [AnyAsyncSequence]
