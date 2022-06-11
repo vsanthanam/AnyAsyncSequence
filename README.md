@@ -3,8 +3,8 @@
 [![MIT License](https://img.shields.io/github/license/vsanthanam/AnyAsyncSequence)](https://github.com/vsanthanam/AnyAsyncSequence/blob/main/LICENSE)
 [![Package Releases](https://img.shields.io/github/v/release/vsanthanam/AnyAsyncSequence)](https://github.com/vsanthanam/AnyAsyncSequence/releases)
 [![Build Results](https://img.shields.io/github/workflow/status/vsanthanam/AnyAsyncSequence/spm-build-test)](https://img.shields.io/github/workflow/status/vsanthanam/AnyAsyncSequence/spm-build-test)
-[![Swift Version](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvsanthanam%2FAnyAsyncSequence%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/vsanthanam/AnyAsyncSequence)
-[![Supported Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvsanthanam%2FAnyAsyncSequence%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/vsanthanam/AnyAsyncSequence)
+[![Swift Version](https://img.shields.io/badge/swift-5.6-critical)](https://swift.org)
+[![Supported Platforms](https://img.shields.io/badge/platform-iOS%2013%20%7C%20macOS%2010.15%20%7C%20tvOS%2013%20%7C%20watchOS%206-lightgrey)](https://developer.apple.com)
 
 AnyAsyncSequence allows you to expose `AsyncSequence` interfaces in your APIs without exposing the underlying sequence type, while continuing to expose the sequence's `Element` type to consumers, so they can asynchronously iterate over the sequence.
 
@@ -28,6 +28,11 @@ To add AnyAsyncSequence as a dependency to an Xcode Project:
 - Enter package URL `https://github.com/vsanthanam/AnyAsyncSequence.git` and select your release and of choice.
 
 Other distribution mechanisms like CocoaPods or Carthage may be added in the future.
+
+Additional installation instructions are available on the [Swift Package Index](https://swiftpackageindex.com/vsanthanam/AnyAsyncSequence)
+
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvsanthanam%2FAnyAsyncSequence%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/vsanthanam/AnyAsyncSequence)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fvsanthanam%2FAnyAsyncSequence%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/vsanthanam/AnyAsyncSequence)
 
 ## Usage
 
