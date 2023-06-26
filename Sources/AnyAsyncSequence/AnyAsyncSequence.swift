@@ -33,7 +33,50 @@ import Foundation
 /// `.eraseToAnyAsyncSequence()` operator also provided with this package.
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AnyAsyncSequence<Element>: AsyncSequence {
+    // MARK: - Initializers
 
+    /// Create an `AnyAsyncSequence` from an `AsyncSequence` conforming type
+    /// - Parameter sequence: The `AnySequence` type you wish to erase
+    public init<T: AsyncSequence>(_ sequence: T) where T.Element == Element {
+        makeAsyncIteratorClosure = { AnyAsyncIterator(sequence.makeAsyncIterator()) }
+    }
+
+    // MARK: - API
+
+    public struct AnyAsyncIterator: AsyncIteratorProtocol {
+        private let nextClosure: () async -> Element?
+
+        public init<T: AsyncIteratorProtocol>(_ iterator: T) where T.Element == Element {
+            var iterator = iterator
+            nextClosure = { try? await iterator.next() }
+        }
+
+        public func next() async -> Element? {
+            await nextClosure()
+        }
+    }
+
+    // MARK: - AsyncSequence
+
+    public typealias Element = Element
+
+    public typealias AsyncIterator = AnyAsyncIterator
+
+    public func makeAsyncIterator() -> AsyncIterator {
+        AnyAsyncIterator(makeAsyncIteratorClosure())
+    }
+
+    private let makeAsyncIteratorClosure: () -> AsyncIterator
+}
+
+/// A type erased `AsyncThrowingSequence`
+///
+/// This type allows you to create APIs that return an `AsyncThrowingSequence` that allows consumers to iterate over the
+/// sequence, without exposing the sequence's underlying type.
+/// Typically, you wouldn't actually initialize this type yourself, but instead create one using the
+/// `.eraseToAnyAsyncThrowingSequence()` operator also provided with this package.
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+public struct AnyAsyncThrowingSequence<Element>: AsyncSequence {
     // MARK: - Initializers
 
     /// Create an `AnyAsyncSequence` from an `AsyncSequence` conforming type

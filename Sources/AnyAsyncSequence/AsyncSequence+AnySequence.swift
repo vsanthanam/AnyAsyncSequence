@@ -34,4 +34,9 @@ public extension AsyncSequence {
         AnyAsyncSequence(self)
     }
 
+    /// Create a type erased version of this sequence
+    /// - Returns: The sequence, wrapped in an `AnyAsyncThrowingSequence`
+    func eraseToAnyAsyncThrowingSequence() -> AnyAsyncThrowingSequence<Element> where {
+        AnyAsyncThrowingSequence(self)
+    }
 }
